@@ -12,18 +12,17 @@ Registrare il router dentro app.js con il prefisso posts/.
 
 const express = require ("express");
 const app= express();
-const port = 3000;
-
-//per mettere le immagini, faccio riferiemnto alla cartella public
-app.use(express.static ('public'));
+const router = express.Router();
 
 
-//attivazione della rotta
-app.get("/api/post", (req, res) => {
+
+
+ 
+
     
 
 
-const posts = [
+let posts = [
     {
       title: "Ciambellone",
       slug: "ciambellone",
@@ -67,7 +66,31 @@ const posts = [
       tags: ["Dolci", "Dolci al cioccolato", "Torte", "Ricette vegetariane", "Ricette al forno"],
     },
   ];
+
+//index
+  router.get('/:id' , function(req,res){
+    res.send('Lista dei posts' + req.params.id);
+  });
+
+
+  //show
+  router.get('/:id' , function(req,res){
+    res.send('Dettaglio dei post' + req.params.id);
+  });
+
+   //store
+   router.post('/' , function(req,res){
+    res.send('Creazione nuovo post');
+  });
+
+   //update
+   router.put('/:id' , function(req,res){
+    res.send('Modifica integrale del post' + req.params.id);
+  });
+
+   //modify
+   router.patch('/:id' , function(req,res){
+    res.send('Modifica integrale del post' + req.params.id);
+  });
   
-   res.json(posts);
-});
   
