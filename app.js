@@ -14,6 +14,8 @@ app.get("/" , (req, res)=>{
 
 app.use("/api/posts", postsRouter)
 
+
+//connessione alla porta 3000 del server
 app.listen(port, ()=>{
     console.log("connessione al server alla porta 3000");
 })
