@@ -11,7 +11,6 @@ Registrare il router dentro app.js con il prefisso posts/.
 */
 
 const express = require ("express");
-const app= express();
 const router = express.Router();
 
 
@@ -67,30 +66,31 @@ let posts = [
     },
   ];
 
-//index
-  router.get('/:id' , function(req,res){
-    res.send('Lista dei posts' + req.params.id);
-  });
 
-
-  //show
-  router.get('/:id' , function(req,res){
-    res.send('Dettaglio dei post' + req.params.id);
-  });
-
-   //store
-   router.post('/' , function(req,res){
-    res.send('Creazione nuovo post');
-  });
-
-   //update
-   router.put('/:id' , function(req,res){
-    res.send('Modifica integrale del post' + req.params.id);
-  });
-
-   //modify
-   router.patch('/:id' , function(req,res){
-    res.send('Modifica integrale del post' + req.params.id);
+  // Index 
+router.get('/', function(req, res) { 
+    res.send('Lista dei posts'); 
   });
   
+  // Show
+  router.get('/:id', function(req, res) { 
+    res.send('Dettaglio del post ' + req.params.id); 
+  });
+  
+  // Store 
+  router.post('/', function(req, res) { 
+    res.send('Creazione nuovo post'); 
+  });
+  
+  // Update 
+  router.put('/:id', function(req, res) { 
+    res.send('Modifica integrale del post ' + req.params.id); 
+  });
+  
+  // Modify 
+  router.patch('/:id', function(req, res) { 
+    res.send('Modifica parziale del post ' + req.params.id); 
+  });
+  
+  module.exports = router;
   
